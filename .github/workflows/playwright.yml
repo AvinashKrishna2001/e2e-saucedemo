@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   test:
-    name: Seven UI cases (QA / Chromium)
+    name: UI cases (QA / Chromium)
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
