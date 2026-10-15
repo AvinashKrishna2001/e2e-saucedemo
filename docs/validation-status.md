@@ -2,15 +2,17 @@
 
 Date: 15 October 2026
 
-## What was checked
+## What was checked for this 35-case update
 
-- The project structure and test case traceability were reviewed against the requirements.
-- Static checks of all JSON files, CSV traceability (15 unique IDs: 7 automated and 8 manual), and the custom runner syntax/help were executed successfully.
-- No end-to-end pass claim is made here unless the seven browser tests are executed in a network-enabled environment.
+- The test repository was expanded to 35 unique case IDs: 15 automated scenarios (`TC-AUTO-001`–`TC-AUTO-015`) and 20 manual / yet-to-automate scenarios (`TC-MAN-001`–`TC-MAN-020`).
+- The automated cases are implemented in three spec files covering authentication, inventory, and shopping.
+- The CSV and Markdown test repositories contain matching 35-case inventories.
+- JSON test data, source paths, workflow trigger branches, and the reporting configuration were inspected.
+- Do not treat the test cases as passing until a live browser run succeeds in GitHub Actions or a network-enabled environment.
 
 ## Execution limitation in the authoring environment
 
-The authoring environment could not resolve the public SauceDemo hostname (`curl` returned a DNS resolution error), and package registry metadata retrieval timed out. As a result, npm dependencies/browser binaries could not be reliably installed here and live browser execution was not possible. This is an environment/network limitation, not a claim that the test suite passed or failed against SauceDemo.
+The authoring environment could not resolve the public GitHub host or SauceDemo hostname, and package registry metadata retrieval was unavailable. As a result, this updated 15-test suite could not be executed against SauceDemo here. This is a network limitation, not a claim that the test suite passed or failed.
 
 ## Reproduce validation locally or in CI
 
@@ -21,4 +23,4 @@ npm run typecheck
 npm test -- --suite all --env qa --browser chromium
 ```
 
-The run should produce a list of seven automated cases and the HTML report in `playwright-report/`. Confirm the actual result from the generated report before describing the suite as passing. The supplied GitHub Actions workflow runs this same QA/Chromium command and uploads the report/results even on failure.
+The full QA/Chromium suite should enumerate 15 automated test cases and generate `playwright-report/`, `results.json`, and failure diagnostics. Confirm actual results from the generated report before describing the suite as passing.
