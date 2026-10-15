@@ -1,0 +1,13 @@
+{
+  "backpack": {
+    "name": "Sauce Labs Backpack",
+    "price": "$29.99",
+    "addButtonTestId": "add-to-cart-sauce-labs-backpack",
+    "removeButtonTestId": "remove-sauce-labs-backpack"
+  },
+  "lowestPriceProduct": {
+    "name": "Sauce Labs Onesie",
+    "price": "$7.99"
+  },
+  "expectedInventoryCount": 6
+}

@@ -1,0 +1,28 @@
+{
+  "name": "playwright-saucedemo-professional-framework",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio-quality Playwright + TypeScript E2E framework for SauceDemo",
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "test:all": "node scripts/run-tests.mjs --suite all",
+    "test:qa": "node scripts/run-tests.mjs --env qa",
+    "test:prod": "node scripts/run-tests.mjs --env prod",
+    "test:headed": "node scripts/run-tests.mjs --headed",
+    "test:auth": "node scripts/run-tests.mjs --suite auth",
+    "test:inventory": "node scripts/run-tests.mjs --suite inventory",
+    "test:shopping": "node scripts/run-tests.mjs --suite shopping",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://www.saucedemo.com"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.15.30",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

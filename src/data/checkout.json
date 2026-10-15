@@ -1,0 +1,12 @@
+{
+  "validCustomer": {
+    "firstName": "Alex",
+    "lastName": "Tester",
+    "postalCode": "500001"
+  },
+  "missingPostalCode": {
+    "firstName": "Alex",
+    "lastName": "Tester",
+    "postalCode": ""
+  }
+}

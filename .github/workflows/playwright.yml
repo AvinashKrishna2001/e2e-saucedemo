@@ -1,0 +1,59 @@
+name: Playwright UI Automation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: playwright-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Seven UI cases (QA / Chromium)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TARGET_ENV: qa
+      # Optional repository variable for a deployment-specific URL. SauceDemo's demo host is used by default.
+      BASE_URL: ${{ vars.BASE_URL || 'https://www.saucedemo.com' }}
+      CI: true
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Install Chromium and OS dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Execute all seven automated cases through the custom runner
+        run: npm test -- --suite all --env qa --browser chromium
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-html-report
+          path: playwright-report/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload test results, traces, screenshots and videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-test-results
+          path: test-results/
+          retention-days: 14
+          if-no-files-found: warn
