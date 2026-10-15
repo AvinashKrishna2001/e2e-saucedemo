@@ -12,8 +12,7 @@ export default defineConfig({
   forbidOnly: isCI,
 
   retries: isCI ? Math.max(runtime.retries, 1) : runtime.retries,
-  workers: isCI ? 2 : undefined,
-
+  workers: isCI ? 2 : 1,
   timeout: runtime.testTimeout,
   expect: {
     timeout: runtime.expectTimeout,
@@ -43,7 +42,13 @@ export default defineConfig({
     baseURL: runtime.baseURL,
     testIdAttribute: 'data-test',
 
-    headless: true,
+    // Show the browser locally, but use headless mode in GitHub Actions.
+    headless: isCI,
+
+    // Slow down browser actions locally so you can follow them.
+    launchOptions: {
+      slowMo: isCI ? 0 : 1000,
+    },
 
     actionTimeout: runtime.actionTimeout,
     navigationTimeout: runtime.navigationTimeout,
