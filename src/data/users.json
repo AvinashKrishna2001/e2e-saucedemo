@@ -10,5 +10,13 @@
   "invalid": {
     "username": "invalid_user",
     "password": "not_the_password"
+  },
+  "emptyUsername": {
+    "username": "",
+    "password": "secret_sauce"
+  },
+  "emptyPassword": {
+    "username": "standard_user",
+    "password": ""
   }
 }

@@ -4,8 +4,7 @@
       "/home/ascendqe007/.nvm/versions/node/v24.14.1/bin/node",
       "/home/ascendqe007/Documents/saucedemo-e2e/node_modules/.bin/playwright",
       "test",
-      "--project=chromium",
-      "--headed"
+      "--project=chromium"
     ],
     "configFile": "/home/ascendqe007/Documents/saucedemo-e2e/playwright.config.ts",
     "rootDir": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui",
@@ -59,7 +58,7 @@
         "use": {
           "baseURL": "https://www.saucedemo.com",
           "testIdAttribute": "data-test",
-          "headless": false,
+          "headless": true,
           "actionTimeout": 10000,
           "navigationTimeout": 20000,
           "screenshot": "only-on-failure",
@@ -142,19 +141,19 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 17391,
+                  "duration": 4550,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.637Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.483Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:06.845Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:39.875Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.421Z",
+                  "startTime": "2026-10-15T09:42:37.636Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -185,19 +184,19 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 17317,
+                  "duration": 3680,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.228Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.527Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:06.381Z] [INFO] Submit login form {\"username\":\"locked_out_user\"}\n"
+                      "text": "[2026-10-15T09:42:39.571Z] [INFO] Submit login form {\"username\":\"locked_out_user\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.649Z",
+                  "startTime": "2026-10-15T09:42:37.738Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -228,19 +227,19 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 17375,
+                  "duration": 3811,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.130Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.488Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:06.716Z] [INFO] Submit login form {\"username\":\"invalid_user\"}\n"
+                      "text": "[2026-10-15T09:42:39.743Z] [INFO] Submit login form {\"username\":\"invalid_user\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.512Z",
+                  "startTime": "2026-10-15T09:42:37.479Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -255,7 +254,7 @@
         },
         {
           "title": "TC-AUTO-009 @prod-safe - Empty username displays required-field validation",
-          "ok": false,
+          "ok": true,
           "tags": [
             "prod-safe"
           ],
@@ -270,124 +269,25 @@
                 {
                   "workerIndex": 3,
                   "parallelIndex": 3,
-                  "status": "failed",
-                  "duration": 16947,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'username')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'username')\n    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:29:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                      "column": 62,
-                      "line": 25
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                        "column": 62,
-                        "line": 25
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'username')\n\n\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\u001b[22m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:29:19\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3667,
+                  "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.056Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.540Z] [INFO] Navigate to SauceDemo login page\n"
+                    },
+                    {
+                      "text": "[2026-10-15T09:42:39.800Z] [INFO] Submit login form {\"username\":\"\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.408Z",
+                  "startTime": "2026-10-15T09:42:37.636Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                    "column": 62,
-                    "line": 25
-                  }
-                },
-                {
-                  "workerIndex": 7,
-                  "parallelIndex": 3,
-                  "status": "failed",
-                  "duration": 8127,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'username')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'username')\n    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:29:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                      "column": 62,
-                      "line": 25
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                        "column": 62,
-                        "line": 25
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'username')\n\n\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\u001b[22m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:29:19\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:26:29.772Z] [INFO] Navigate to SauceDemo login page\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 1,
-                  "startTime": "2026-10-15T09:26:23.946Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium-retry1/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium-retry1/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium-retry1/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-009-d56a6-s-required-field-validation-chromium-retry1/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                    "column": 62,
-                    "line": 25
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "70f6afe7e350c931056e-36a54548b11fcb8906a1",
@@ -397,7 +297,7 @@
         },
         {
           "title": "TC-AUTO-010 @prod-safe - Empty password displays required-field validation",
-          "ok": false,
+          "ok": true,
           "tags": [
             "prod-safe"
           ],
@@ -412,124 +312,25 @@
                 {
                   "workerIndex": 4,
                   "parallelIndex": 4,
-                  "status": "failed",
-                  "duration": 15369,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'username')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'username')\n    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:36:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                      "column": 62,
-                      "line": 25
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                        "column": 62,
-                        "line": 25
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'username')\n\n\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\u001b[22m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:36:19\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3664,
+                  "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.484Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.475Z] [INFO] Navigate to SauceDemo login page\n"
+                    },
+                    {
+                      "text": "[2026-10-15T09:42:39.686Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.016Z",
+                  "startTime": "2026-10-15T09:42:37.656Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                    "column": 62,
-                    "line": 25
-                  }
-                },
-                {
-                  "workerIndex": 6,
-                  "parallelIndex": 4,
-                  "status": "failed",
-                  "duration": 10063,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'username')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'username')\n    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:36:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                      "column": 62,
-                      "line": 25
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                        "column": 62,
-                        "line": 25
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'username')\n\n\u001b[90m   at \u001b[39m../../pages/LoginPage.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36masync\u001b[39m login(credentials\u001b[33m:\u001b[39m \u001b[33mCredentials\u001b[39m)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     logger\u001b[33m.\u001b[39minfo(\u001b[32m'Submit login form'\u001b[39m\u001b[33m,\u001b[39m { username\u001b[33m:\u001b[39m credentials\u001b[33m.\u001b[39musername })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39musername)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(credentials\u001b[33m.\u001b[39mpassword)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at LoginPage.login (/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts:25:62)\u001b[22m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/authentication.spec.ts:36:19\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:26:29.873Z] [INFO] Navigate to SauceDemo login page\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 1,
-                  "startTime": "2026-10-15T09:26:23.873Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium-retry1/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium-retry1/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium-retry1/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/authentication-TC-AUTO-010-330ac-s-required-field-validation-chromium-retry1/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/pages/LoginPage.ts",
-                    "column": 62,
-                    "line": 25
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "70f6afe7e350c931056e-13af4830f11491341d6d",
@@ -563,22 +364,22 @@
                   "workerIndex": 5,
                   "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 18466,
+                  "duration": 4799,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:02.070Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:38.488Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:02.071Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:38.492Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:06.415Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:39.579Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:25:58.584Z",
+                  "startTime": "2026-10-15T09:42:37.611Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -606,28 +407,28 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 8507,
+                  "duration": 3845,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:19.104Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:42.261Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:19.105Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:42.261Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:21.756Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:43.343Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:24.048Z] [INFO] Sort inventory {\"option\":\"lohi\"}\n"
+                      "text": "[2026-10-15T09:42:44.563Z] [INFO] Sort inventory {\"option\":\"lohi\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:17.970Z",
+                  "startTime": "2026-10-15T09:42:41.949Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -655,28 +456,28 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 8368,
+                  "duration": 3663,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:19.310Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:42.234Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:19.314Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:42.235Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:21.630Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:43.326Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:24.143Z] [INFO] Sort inventory {\"option\":\"az\"}\n"
+                      "text": "[2026-10-15T09:42:44.486Z] [INFO] Sort inventory {\"option\":\"az\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:18.079Z",
+                  "startTime": "2026-10-15T09:42:41.910Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -704,28 +505,28 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 8657,
+                  "duration": 3931,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:19.101Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:42.360Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:19.101Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:42.360Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:21.685Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:43.338Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:24.310Z] [INFO] Sort inventory {\"option\":\"za\"}\n"
+                      "text": "[2026-10-15T09:42:44.682Z] [INFO] Sort inventory {\"option\":\"za\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:18.202Z",
+                  "startTime": "2026-10-15T09:42:41.978Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -740,7 +541,7 @@
         },
         {
           "title": "TC-AUTO-013 @prod-safe - Products can be sorted by price from high to low",
-          "ok": false,
+          "ok": true,
           "tags": [
             "prod-safe"
           ],
@@ -753,149 +554,33 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 5,
-                  "parallelIndex": 5,
-                  "status": "failed",
-                  "duration": 10953,
-                  "error": {
-                    "message": "TypeError: (0 , _assertions.expectDescending) is not a function",
-                    "stack": "TypeError: (0 , _assertions.expectDescending) is not a function\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts:43:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                      "column": 19,
-                      "line": 43
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 41 |\u001b[39m   \u001b[36mconst\u001b[39m displayedPrices \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m authenticatedShopper\u001b[33m.\u001b[39mitemPrices())\u001b[33m.\u001b[39mmap(parsePrice)\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m   expectDescending(displayedPrices\u001b[33m,\u001b[39m \u001b[32m'Inventory prices'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                        "column": 19,
-                        "line": 43
-                      },
-                      "message": "TypeError: (0 , _assertions.expectDescending) is not a function\n\n\u001b[0m \u001b[90m 41 |\u001b[39m   \u001b[36mconst\u001b[39m displayedPrices \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m authenticatedShopper\u001b[33m.\u001b[39mitemPrices())\u001b[33m.\u001b[39mmap(parsePrice)\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m   expectDescending(displayedPrices\u001b[33m,\u001b[39m \u001b[32m'Inventory prices'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\u001b[0m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts:43:19\u001b[22m"
-                    }
-                  ],
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3773,
+                  "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:20.129Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:42.524Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:20.130Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:42.525Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:23.019Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:43.442Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:25.096Z] [INFO] Sort inventory {\"option\":\"hilo\"}\n"
+                      "text": "[2026-10-15T09:42:44.764Z] [INFO] Sort inventory {\"option\":\"hilo\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:19.004Z",
+                  "startTime": "2026-10-15T09:42:42.060Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                    "column": 19,
-                    "line": 43
-                  }
-                },
-                {
-                  "workerIndex": 8,
-                  "parallelIndex": 5,
-                  "status": "failed",
-                  "duration": 3874,
-                  "error": {
-                    "message": "TypeError: (0 , _assertions.expectDescending) is not a function",
-                    "stack": "TypeError: (0 , _assertions.expectDescending) is not a function\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts:43:19",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                      "column": 19,
-                      "line": 43
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 41 |\u001b[39m   \u001b[36mconst\u001b[39m displayedPrices \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m authenticatedShopper\u001b[33m.\u001b[39mitemPrices())\u001b[33m.\u001b[39mmap(parsePrice)\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m   expectDescending(displayedPrices\u001b[33m,\u001b[39m \u001b[32m'Inventory prices'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                        "column": 19,
-                        "line": 43
-                      },
-                      "message": "TypeError: (0 , _assertions.expectDescending) is not a function\n\n\u001b[0m \u001b[90m 41 |\u001b[39m   \u001b[36mconst\u001b[39m displayedPrices \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m authenticatedShopper\u001b[33m.\u001b[39mitemPrices())\u001b[33m.\u001b[39mmap(parsePrice)\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m   expectDescending(displayedPrices\u001b[33m,\u001b[39m \u001b[32m'Inventory prices'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\u001b[0m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts:43:19\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:26:41.171Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:41.172Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:42.301Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:43.232Z] [INFO] Sort inventory {\"option\":\"hilo\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 1,
-                  "startTime": "2026-10-15T09:26:38.633Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium-retry1/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium-retry1/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium-retry1/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/inventory-TC-AUTO-013-prod-9d90c-d-by-price-from-high-to-low-chromium-retry1/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/inventory.spec.ts",
-                    "column": 19,
-                    "line": 43
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "491382254a121adeeb47-ef8d98c4b36ff40ab44b",
@@ -926,28 +611,28 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9359,
+                  "duration": 3167,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:28.425Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:42.945Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:28.425Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:42.945Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:31.761Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:43.739Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:34.003Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:44.969Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:26.730Z",
+                  "startTime": "2026-10-15T09:42:42.736Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -975,31 +660,31 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 9499,
+                  "duration": 3220,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:28.127Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:43.148Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:28.127Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:43.148Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:31.032Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:44.017Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:34.310Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:45.340Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:35.402Z] [INFO] Remove product from cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:45.691Z] [INFO] Remove product from cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:26.867Z",
+                  "startTime": "2026-10-15T09:42:42.930Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1027,37 +712,37 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 11592,
+                  "duration": 3900,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:28.221Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:45.886Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:28.222Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:45.886Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:30.961Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:47.037Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:34.427Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
+                      "text": "[2026-10-15T09:42:47.899Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:34.428Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:47.901Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:36.075Z] [INFO] Enter checkout customer details {\"hasPostalCode\":true}\n"
+                      "text": "[2026-10-15T09:42:48.682Z] [INFO] Enter checkout customer details {\"hasPostalCode\":true}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:37.471Z] [INFO] Finish demo checkout\n"
+                      "text": "[2026-10-15T09:42:49.198Z] [INFO] Finish demo checkout\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:27.196Z",
+                  "startTime": "2026-10-15T09:42:45.697Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1072,7 +757,7 @@
         },
         {
           "title": "TC-AUTO-014 @prod-safe - Cart shows the correct contents when multiple products are added",
-          "ok": false,
+          "ok": true,
           "tags": [
             "prod-safe"
           ],
@@ -1085,155 +770,36 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "failed",
-                  "duration": 5636,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'name')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'name')\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts:48:58",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                      "column": 58,
-                      "line": 48
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cartPage\u001b[33m.\u001b[39mitems\u001b[33m,\u001b[39m \u001b[32m'Cart should contain exactly two products'\u001b[39m)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbackpack\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbikeLight\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m test(\u001b[32m'TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ checkoutReadyShopper\u001b[33m,\u001b[39m page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                        "column": 58,
-                        "line": 48
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'name')\n\n\u001b[0m \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cartPage\u001b[33m.\u001b[39mitems\u001b[33m,\u001b[39m \u001b[32m'Cart should contain exactly two products'\u001b[39m)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbackpack\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbikeLight\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m test(\u001b[32m'TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ checkoutReadyShopper\u001b[33m,\u001b[39m page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts:48:58\u001b[22m"
-                    }
-                  ],
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3191,
+                  "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:37.341Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:46.103Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:37.341Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:46.103Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:38.568Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:46.915Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:39.810Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:47.786Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:39.915Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-bike-light\"}\n"
+                      "text": "[2026-10-15T09:42:47.953Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-bike-light\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:36.275Z",
+                  "startTime": "2026-10-15T09:42:45.915Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                    "column": 58,
-                    "line": 48
-                  }
-                },
-                {
-                  "workerIndex": 9,
-                  "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 2851,
-                  "error": {
-                    "message": "TypeError: Cannot read properties of undefined (reading 'name')",
-                    "stack": "TypeError: Cannot read properties of undefined (reading 'name')\n    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts:48:58",
-                    "location": {
-                      "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                      "column": 58,
-                      "line": 48
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cartPage\u001b[33m.\u001b[39mitems\u001b[33m,\u001b[39m \u001b[32m'Cart should contain exactly two products'\u001b[39m)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbackpack\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbikeLight\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m test(\u001b[32m'TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ checkoutReadyShopper\u001b[33m,\u001b[39m page }) \u001b[33m=>\u001b[39m {\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                        "column": 58,
-                        "line": 48
-                      },
-                      "message": "TypeError: Cannot read properties of undefined (reading 'name')\n\n\u001b[0m \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cartPage\u001b[33m.\u001b[39mitems\u001b[33m,\u001b[39m \u001b[32m'Cart should contain exactly two products'\u001b[39m)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbackpack\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m   \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mexpectProductVisible(products\u001b[33m.\u001b[39mbikeLight\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m test(\u001b[32m'TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ checkoutReadyShopper\u001b[33m,\u001b[39m page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at /home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts:48:58\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:26:45.494Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:45.495Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:46.303Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:46.968Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:26:47.063Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-bike-light\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 1,
-                  "startTime": "2026-10-15T09:26:44.502Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium-retry1/test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium-retry1/video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium-retry1/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/home/ascendqe007/Documents/saucedemo-e2e/test-results/shopping-TC-AUTO-014-prod--a6b15-multiple-products-are-added-chromium-retry1/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui/shopping.spec.ts",
-                    "column": 58,
-                    "line": 48
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "f177f4eaa9abb9f5894f-635c650eb9a136123b02",
@@ -1256,34 +822,34 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5302,
+                  "duration": 3364,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:26:37.416Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T09:42:46.199Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:37.419Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T09:42:46.199Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:38.836Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T09:42:46.914Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:39.829Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
+                      "text": "[2026-10-15T09:42:47.785Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:39.829Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
+                      "text": "[2026-10-15T09:42:47.785Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:26:40.546Z] [INFO] Enter checkout customer details {\"hasPostalCode\":false}\n"
+                      "text": "[2026-10-15T09:42:48.470Z] [INFO] Enter checkout customer details {\"hasPostalCode\":false}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:26:36.672Z",
+                  "startTime": "2026-10-15T09:42:46.050Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1301,11 +867,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-15T09:25:55.818Z",
-    "duration": 52693.772,
-    "expected": 11,
+    "startTime": "2026-10-15T09:42:35.786Z",
+    "duration": 14059.055999999999,
+    "expected": 15,
     "skipped": 0,
-    "unexpected": 4,
+    "unexpected": 0,
     "flaky": 0
   }
 }

@@ -9,5 +9,11 @@
     "name": "Sauce Labs Onesie",
     "price": "$7.99"
   },
-  "expectedInventoryCount": 6
+  "expectedInventoryCount": 6,
+  "bikeLight": {
+    "name": "Sauce Labs Bike Light",
+    "price": "$9.99",
+    "addButtonTestId": "add-to-cart-sauce-labs-bike-light",
+    "removeButtonTestId": "remove-sauce-labs-bike-light"
+  }
 }

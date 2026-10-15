@@ -10,3 +10,17 @@ export function expectAscending(values: number[], subject = 'values'): void {
   const expected = [...values].sort((left, right) => left - right);
   expect(values, `${subject} should be sorted in ascending order`).toEqual(expected);
 }
+
+export function expectDescending(
+  values: number[],
+  subject = 'values',
+): void {
+  const expected = [...values].sort(
+    (left, right) => right - left,
+  );
+
+  expect(
+    values,
+    `${subject} should be sorted in descending order`,
+  ).toEqual(expected);
+}
