@@ -51,7 +51,7 @@ Another SauceDemo + TypeScript sample was reviewed as a secondary structure refe
 | Dependency demonstration | Serial chain in `shopping.spec.ts` | `TC-AUTO-005` → `014` → `006` → `015` → `007` share one browser session. A later test run alone fails, and a failure skips the rest of the chain. Trade-off: less isolation and harder debugging, in exchange for demonstrating order-dependent tests. |
 | Environment profiles | `.env`, `.env.qa`, `.env.prod` | Same hosted URL because SauceDemo does not provide separate user-configurable deployments in this sample; users must replace URLs for genuine environments. |
 | Production safety | Checkout tagged and guarded | A checkout completion changes the demo session/order state. The runner excludes it by default in `prod`; a fixture guard also protects direct Playwright runs. |
-| CI browser | Chromium | Limits installation time and keeps the canonical seven-case CI run fast; Firefox and WebKit remain selectable locally. |
+| CI browser | Chromium | Limits installation time and keeps the canonical 15-case CI run fast; Firefox and WebKit remain selectable locally. |
 | Retries | Zero locally, conservative CI retry | Helps tolerate occasional CI timing/network variance without hiding local failures. Traces are retained on failures for diagnosis. |
 
 ## Caveats

@@ -43,7 +43,7 @@ jobs:
       - name: Install Chromium and OS dependencies
         run: npx playwright install --with-deps chromium
 
-      - name: Execute all seven automated cases through the custom runner
+      - name: Execute all 15 automated cases through the custom runner
         run: npm test -- --suite all --env qa --browser chromium
 
       # Generate failure details even when Playwright tests fail.
