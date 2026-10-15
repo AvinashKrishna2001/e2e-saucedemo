@@ -6,8 +6,8 @@ A portfolio-ready end-to-end UI automation project built with **Playwright Test,
 
 ## What's included
 
-- **7 automated UI cases** with stable IDs `TC-AUTO-001`–`TC-AUTO-007`.
-- **8 manual cases** with IDs `TC-MAN-001`–`TC-MAN-008`.
+- **15 automated UI cases** with stable IDs `TC-AUTO-001`–`TC-AUTO-015`.
+- **20 manual cases** with IDs `TC-MAN-001`–`TC-MAN-020`.
 - A traceable test case repository in `docs/test-cases.md` and `docs/test-case-repository.csv`.
 - Page objects for Login, Inventory, Cart, and Checkout.
 - Reusable fixtures, including an `authenticatedShopper` setup and a `checkoutReadyShopper` fixture that establishes the cart state required by checkout.
@@ -44,7 +44,7 @@ The browser download is separate from npm package installation. On Linux CI, use
 
 Do not confuse the runner's `--env` option with Playwright's own options. The runner selects the environment profile, then launches Playwright Test with the correct project and filters.
 
-### Run all seven automated cases
+### Run all 15 automated cases
 
 ```bash
 npm test -- --suite all --env qa --browser chromium
@@ -146,7 +146,7 @@ playwright-saucedemo-framework/
 ├── docs/
 │   ├── research-notes.md              # Public repo/docs review and design choices
 │   ├── test-cases.md                  # Human-readable traceability repository
-│   ├── test-case-repository.csv       # All 15 cases in tabular form
+│   ├── test-case-repository.csv       # All 35 cases in tabular form
 │   └── validation-status.md           # Honest validation record
 ├── scripts/run-tests.mjs              # Custom runner / environment and browser selection
 ├── src/
@@ -154,7 +154,7 @@ playwright-saucedemo-framework/
 │   ├── data/                          # JSON test data, separate from test scripts
 │   ├── fixtures/test.ts               # Page objects, auth/cart setup, prod guard
 │   ├── pages/                         # Login, Inventory, Cart, Checkout POMs
-│   ├── tests/ui/                      # Three test specs, seven cases
+│   ├── tests/ui/                      # Three test specs, 15 automated cases
 │   └── utils/                         # Logger and reusable assertions
 ├── playwright.config.ts
 ├── tsconfig.json
@@ -182,6 +182,14 @@ playwright-saucedemo-framework/
 | TC-AUTO-005 | Add product and verify cart badge | `shopping.spec.ts` | Included |
 | TC-AUTO-006 | Remove product from cart | `shopping.spec.ts` | Included |
 | TC-AUTO-007 | Complete checkout journey | `shopping.spec.ts` | Excluded unless explicitly approved |
+| TC-AUTO-008 | Invalid credentials display an error | `authentication.spec.ts` | Included |
+| TC-AUTO-009 | Empty username validation | `authentication.spec.ts` | Included |
+| TC-AUTO-010 | Empty password validation | `authentication.spec.ts` | Included |
+| TC-AUTO-011 | Sort products by name A to Z | `inventory.spec.ts` | Included |
+| TC-AUTO-012 | Sort products by name Z to A | `inventory.spec.ts` | Included |
+| TC-AUTO-013 | Sort products by price high-to-low | `inventory.spec.ts` | Included |
+| TC-AUTO-014 | Add multiple products and verify cart contents | `shopping.spec.ts` | Included |
+| TC-AUTO-015 | Block checkout when postal code is missing | `shopping.spec.ts` | Included |
 
 Manual cases include blank-field and invalid-credential validation, descending sorting, product detail navigation, continue-shopping behavior, checkout mandatory-field validation, and logout/session invalidation. Full instructions are in `docs/test-cases.md`.
 
@@ -206,7 +214,7 @@ Workflow: `.github/workflows/playwright.yml`.
 
 - Runs on pushes and pull requests to `main`/`master`, plus manual `workflow_dispatch`.
 - Installs Node dependencies and Chromium system/browser dependencies.
-- Calls the same custom runner for all seven cases against the QA profile.
+- Calls the same custom runner for all 15 cases against the QA profile.
 - Uploads the HTML report and test results as artifacts, even when tests fail.
 - Supports selecting the environment through the `TARGET_ENV` repository variable and the base URL through `BASE_URL`. Configure GitHub repository variables as needed; secrets should only be used when the application under test requires credentials.
 
