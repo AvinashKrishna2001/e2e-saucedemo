@@ -8,12 +8,8 @@ import users from '../../data/users.json';
 import products from '../../data/products.json';
 import checkoutData from '../../data/checkout.json';
 
-// Dependent tests: they run in this order and share one browser session.
-// Each test continues from the state left by the previous one, so running a later
-// test on its own fails (no login, empty cart). Chain:
-//   005 login + add backpack -> 014 add bike light -> 006 remove backpack
-//   -> 015 checkout validation -> 007 complete checkout
-test.describe.serial('Shopping journey (dependent tests)', () => {
+// Serial tests sharing one browser session, run in the order listed.
+test.describe.serial('Shopping journey', () => {
   let page: Page;
   let inventory: InventoryPage;
   let cart: CartPage;
@@ -42,8 +38,7 @@ test.describe.serial('Shopping journey (dependent tests)', () => {
       .toBeVisible();
   });
 
-  test('TC-AUTO-014 @prod-safe - Cart shows the correct contents when multiple products are added (depends on TC-AUTO-005)', async () => {
-    // Backpack is already in the cart from TC-AUTO-005.
+  test('TC-AUTO-014 @prod-safe - Cart shows the correct contents when multiple products are added', async () => {
     await inventory.addToCart('sauce-labs-bike-light');
     await inventory.expectCartCount(2);
 
@@ -54,15 +49,14 @@ test.describe.serial('Shopping journey (dependent tests)', () => {
     await cart.expectProductVisible(products.bikeLight.name);
   });
 
-  test('TC-AUTO-006 @prod-safe - A product can be removed from the cart (depends on TC-AUTO-014)', async () => {
-    // Already on the cart page with two products from TC-AUTO-014.
+  test('TC-AUTO-006 @prod-safe - A product can be removed from the cart', async () => {
     await cart.removeProduct('sauce-labs-backpack');
     await cart.expectProductAbsent(products.backpack.name);
     await cart.expectProductVisible(products.bikeLight.name);
     await inventory.expectCartCount(1);
   });
 
-  test('TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing (depends on TC-AUTO-006)', async () => {
+  test('TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing', async () => {
     await cart.checkoutButton.click();
     await expect(page).toHaveURL(/checkout-step-one\.html$/);
 
@@ -73,8 +67,7 @@ test.describe.serial('Shopping journey (dependent tests)', () => {
     await expect(page).toHaveURL(/checkout-step-one\.html$/);
   });
 
-  test('TC-AUTO-007 @production-unsafe - Shopper completes checkout (depends on TC-AUTO-015)', async () => {
-    // Still on checkout step one with the bike light in the cart.
+  test('TC-AUTO-007 @production-unsafe - Shopper completes checkout', async () => {
     await checkout.fillCustomerDetails(checkoutData.validCustomer);
     await checkout.continueToOverview();
 
