@@ -2,8 +2,18 @@ name: Playwright UI Automation
 
 on:
   push:
+    branches:
+      - pipeline-trigger
+      - main
+      - avi-dev
+
   pull_request:
-  workflow_dispatch:
+    branches:
+      - pipeline-trigger
+      - main
+      - avi-dev
+
+  # workflow_dispatch:
 
 permissions:
   contents: read
