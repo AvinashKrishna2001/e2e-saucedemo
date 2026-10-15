@@ -11,6 +11,7 @@ A portfolio-ready end-to-end UI automation project built with **Playwright Test,
 - A traceable test case repository in `docs/test-cases.md` and `docs/test-case-repository.csv`.
 - Page objects for Login, Inventory, Cart, and Checkout.
 - Reusable fixtures, including an `authenticatedShopper` setup and a `checkoutReadyShopper` fixture that establishes the cart state required by checkout.
+- A **dependent test chain** in `shopping.spec.ts` (`TC-AUTO-005` → `014` → `006` → `015` → `007`) that runs serially in one shared browser session.
 - Separate JSON data for users, products, and checkout details.
 - `.env`, `.env.qa`, and `.env.prod` profile files.
 - Custom CLI support for suite, case ID/test title, environment, browser project, headed/headless, and an explicit production-safety override.
@@ -164,9 +165,9 @@ playwright-saucedemo-framework/
 ### Design choices
 
 - **POMs own selectors and reusable actions.** Tests own scenario assertions and business expectations.
-- **Independent test execution.** Each case either uses its own page flow or a fixture that creates all state it needs. No case depends on a previous test having passed or having run first.
-- **Explicit setup dependency.** `TC-AUTO-007` uses `checkoutReadyShopper`, which relies on `authenticatedShopper`, adds the backpack, and opens the cart before the test begins the checkout form. This demonstrates a dependent workflow without fragile cross-test ordering.
-- **Parallel safety.** Playwright supplies an isolated browser context/page per test. The shared demo site can occasionally be slow or unavailable, but tests do not share browser storage or depend on execution order.
+- **Independent test execution.** The authentication (`TC-AUTO-001`, `002`, `008`–`010`) and inventory (`TC-AUTO-003`, `004`, `011`–`013`) cases use their own page flow or a fixture that creates all state they need. They can run alone, in any order, and in parallel.
+- **Dependent test chain.** The shopping cases in `shopping.spec.ts` are deliberately dependent. They use `test.describe.serial` and share one browser page, so each test continues from the state left by the previous one (see the table below). If one test fails, the remaining tests in the chain are skipped.
+- **Parallel safety.** Playwright supplies an isolated browser context/page per test for the independent specs. The shopping chain is serial inside one worker; it can still run in parallel with other spec files.
 - **Typed test data.** Common credentials, product identity, and checkout data live in `src/data/*.json`; no production credentials are included.
 - **Failure diagnostics.** Screenshots, traces and videos are retained on failure; successful runs do not retain video/trace artifacts unnecessarily.
 - **Retries.** Local is configured with no retry by default. CI retries are enabled conservatively. Retries should not be used to conceal genuine instability.
@@ -190,6 +191,20 @@ playwright-saucedemo-framework/
 | TC-AUTO-013 | Sort products by price high-to-low | `inventory.spec.ts` | Included |
 | TC-AUTO-014 | Add multiple products and verify cart contents | `shopping.spec.ts` | Included |
 | TC-AUTO-015 | Block checkout when postal code is missing | `shopping.spec.ts` | Included |
+
+### Dependent shopping chain
+
+The five cases in `shopping.spec.ts` run in this order and share one logged-in session and cart:
+
+| Order | ID | Depends on | State it needs / leaves |
+|---|---|---|---|
+| 1 | TC-AUTO-005 | none | Logs in, adds the backpack. Leaves the cart with 1 item. |
+| 2 | TC-AUTO-014 | TC-AUTO-005 | Adds the bike light. Leaves the cart page open with 2 items. |
+| 3 | TC-AUTO-006 | TC-AUTO-014 | Removes the backpack. Leaves the bike light in the cart. |
+| 4 | TC-AUTO-015 | TC-AUTO-006 | Starts checkout with a missing postal code. Leaves checkout step one open with an error. |
+| 5 | TC-AUTO-007 | TC-AUTO-015 | Completes checkout for the bike light. |
+
+**Consequence for running single cases:** a dependent case fails if run alone, for example `npm test -- --case TC-AUTO-006`, because the login and cart state from earlier tests does not exist. Run the whole chain with `npm test -- --suite shopping`, or select every case in it. In `prod`, `TC-AUTO-007` is skipped (last in the chain), so the first four still run.
 
 Manual cases include blank-field and invalid-credential validation, descending sorting, product detail navigation, continue-shopping behavior, checkout mandatory-field validation, and logout/session invalidation. Full instructions are in `docs/test-cases.md`.
 

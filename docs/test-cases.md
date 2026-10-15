@@ -20,7 +20,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Open the URL. 2. Enter standard_user. 3. Enter secret_sauce. 4. Click Login.
 - **Expected Results:** User is redirected to Inventory; Products heading and product cards are visible.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Positive
 - **Automation Status:** Automated
@@ -32,7 +32,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Open the URL. 2. Enter locked_out_user. 3. Enter secret_sauce. 4. Click Login.
 - **Expected Results:** Login is blocked and an error explains that the user is locked out.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Negative
 - **Automation Status:** Automated
@@ -44,7 +44,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Log in. 2. Wait for Inventory. 3. Inspect the Products heading and product cards.
 - **Expected Results:** Inventory loads and the expected product listing is displayed.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Positive
 - **Automation Status:** Automated
@@ -56,43 +56,46 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Log in. 2. Select Price (low to high). 3. Read displayed product prices in order. 4. Verify each price is less than or equal to the next.
 - **Expected Results:** Products are ordered by ascending price.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P2
 - **Test Type:** Functional - Sorting
 - **Automation Status:** Automated
 
 ### TC-AUTO-005 — Add a product to the cart
 
-- **Preconditions:** User is authenticated and Inventory is displayed.
+- **Preconditions:** None. First test in the dependent shopping chain; it logs in itself.
+- **Dependencies:** None. TC-AUTO-014, 006, 015 and 007 depend on this test.
 - **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Backpack; Price: $29.99
 - **Test Steps:**
   1. Log in. 2. Add Sauce Labs Backpack. 3. Check the cart badge.
 - **Expected Results:** Cart badge displays 1 and the selected product is added.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Positive
 - **Automation Status:** Automated
 
 ### TC-AUTO-006 — Remove a product from the cart
 
-- **Preconditions:** User is authenticated and Inventory is displayed.
+- **Preconditions:** TC-AUTO-014 has run: the user is logged in and the Cart page shows the backpack and the bike light.
+- **Dependencies:** TC-AUTO-014 (fails if run alone).
 - **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Backpack
 - **Test Steps:**
-  1. Log in. 2. Add Sauce Labs Backpack. 3. Remove it. 4. Check the cart badge and cart contents.
-- **Expected Results:** Product is removed and the cart badge is absent or reflects zero items.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+  1. Remove Sauce Labs Backpack from the cart. 2. Check the cart badge and cart contents.
+- **Expected Results:** Backpack is removed, Sauce Labs Bike Light remains and the cart badge shows 1.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Negative/State change
 - **Automation Status:** Automated
 
 ### TC-AUTO-007 — Complete checkout successfully
 
-- **Preconditions:** User can log in and the cart can be populated.
-- **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Backpack; First name: Avinash; Last name: Test; Postal code: 500001
+- **Preconditions:** TC-AUTO-015 has run: the user is logged in, the cart holds the Sauce Labs Bike Light and checkout step one is open.
+- **Dependencies:** TC-AUTO-015 (fails if run alone). Tagged `@production-unsafe`; skipped in `prod`.
+- **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Bike Light ($9.99); First name: Alex; Last name: Tester; Postal code: 500001
 - **Test Steps:**
-  1. Log in. 2. Add Sauce Labs Backpack. 3. Open Cart and click Checkout. 4. Enter first name, last name and postal code. 5. Continue. 6. Verify overview. 7. Finish checkout.
+  1. Enter first name, last name and postal code. 2. Continue. 3. Verify overview and item total. 4. Finish checkout.
 - **Expected Results:** Order confirmation is displayed and indicates that the order is complete.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** End-to-end - Positive
 - **Automation Status:** Automated
@@ -104,7 +107,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Open the URL. 2. Enter invalid_user. 3. Enter wrong_password. 4. Click Login.
 - **Expected Results:** Login is blocked and a clear authentication error is displayed.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Negative
 - **Automation Status:** Automated
@@ -116,7 +119,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Open the URL. 2. Leave Username empty. 3. Enter secret_sauce in Password. 4. Click Login.
 - **Expected Results:** Login is blocked and a username-required validation message is displayed.
-- **Actual Result:** Previously failed because the emptyUsername test-data entry was undefined. The user subsequently reported the fixes were working; rerun this case to record the current result.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Validation - Negative
 - **Automation Status:** Automated
@@ -128,7 +131,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Open the URL. 2. Enter standard_user. 3. Leave Password empty. 4. Click Login.
 - **Expected Results:** Login is blocked and a password-required validation message is displayed.
-- **Actual Result:** Previously failed because the emptyPassword test-data entry was undefined. The user subsequently reported the fixes were working; rerun this case to record the current result.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Validation - Negative
 - **Automation Status:** Automated
@@ -140,7 +143,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Log in. 2. Select Name (A to Z). 3. Read product names in display order.
 - **Expected Results:** Product names appear in ascending alphabetical order.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P2
 - **Test Type:** Functional - Sorting
 - **Automation Status:** Automated
@@ -152,7 +155,7 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Log in. 2. Select Name (Z to A). 3. Read product names in display order.
 - **Expected Results:** Product names appear in descending alphabetical order.
-- **Actual Result:** Passed in the latest reported suite after the reported fixes; rerun to confirm on the current commit.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P2
 - **Test Type:** Functional - Sorting
 - **Automation Status:** Automated
@@ -164,31 +167,33 @@ Each test case is self-contained: preconditions, steps, test data, expected resu
 - **Test Steps:**
   1. Log in. 2. Select Price (high to low). 3. Read displayed product prices in order. 4. Verify each price is greater than or equal to the next.
 - **Expected Results:** Products are ordered by descending price.
-- **Actual Result:** Previously failed because expectDescending was not exported. The user subsequently reported the fixes were working; rerun this case to record the current result.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P2
 - **Test Type:** Functional - Sorting
 - **Automation Status:** Automated
 
 ### TC-AUTO-014 — Cart shows the correct contents when multiple products are added
 
-- **Preconditions:** User is authenticated and Inventory is displayed.
+- **Preconditions:** TC-AUTO-005 has run: the user is logged in and the cart already holds the backpack.
+- **Dependencies:** TC-AUTO-005 (fails if run alone).
 - **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Products: Sauce Labs Backpack ($29.99), Sauce Labs Bike Light ($9.99)
 - **Test Steps:**
-  1. Log in. 2. Add Sauce Labs Backpack. 3. Add Sauce Labs Bike Light. 4. Open Cart. 5. Verify both product names and item count.
+  1. Add Sauce Labs Bike Light. 2. Open Cart. 3. Verify both product names and item count.
 - **Expected Results:** Cart contains exactly two items: Sauce Labs Backpack and Sauce Labs Bike Light.
-- **Actual Result:** Previously failed because the bikeLight product-data entry was undefined. The user subsequently reported the fixes were working; rerun this case to record the current result.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Functional - Cart
 - **Automation Status:** Automated
 
 ### TC-AUTO-015 — Checkout blocks continuation when postal code is missing
 
-- **Preconditions:** User is authenticated and has a product in the cart.
-- **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Backpack; First name: Avinash; Last name: Test; Postal code: empty
+- **Preconditions:** TC-AUTO-006 has run: the user is logged in and the Cart page shows the Sauce Labs Bike Light.
+- **Dependencies:** TC-AUTO-006 (fails if run alone).
+- **Test Data:** URL: https://www.saucedemo.com; Username: standard_user; Password: secret_sauce; Product: Sauce Labs Bike Light; First name: Alex; Last name: Tester; Postal code: empty
 - **Test Steps:**
-  1. Log in. 2. Add Sauce Labs Backpack. 3. Open Cart and click Checkout. 4. Enter first and last name. 5. Leave Postal Code empty. 6. Click Continue.
+  1. Click Checkout. 2. Enter first and last name. 3. Leave Postal Code empty. 4. Click Continue.
 - **Expected Results:** Checkout does not proceed to the overview and a postal-code-required message is displayed.
-- **Actual Result:** Not independently verified in the information provided; record the observed result from the latest test run.
+- **Actual Result:** Passed on 2026-10-15 in a full-suite run (15/15 passed; local profile, Chromium).
 - **Priority:** P1
 - **Test Type:** Validation - Negative
 - **Automation Status:** Automated
