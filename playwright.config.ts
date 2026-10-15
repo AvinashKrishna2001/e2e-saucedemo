@@ -31,7 +31,7 @@ export default defineConfig({
     [
       'json',
       {
-        outputFile: 'results.json',
+        outputFile: 'test-results/results.json',
       },
     ],
   ],

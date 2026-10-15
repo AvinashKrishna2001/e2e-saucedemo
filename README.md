@@ -204,7 +204,7 @@ npm run report
 Artifacts are generated in:
 
 - `playwright-report/` — HTML report.
-- `test-results/` — traces, failure screenshots, videos, and per-test results.
+- `test-results/` — `results.json`, traces, failure screenshots, videos, and per-test results.
 
 If the run fails, open the report first, then inspect the failed test's trace via Playwright Trace Viewer. Use `npx playwright show-trace path/to/trace.zip` where the path is shown by the test output/report. Avoid attaching credentials or sensitive payloads to issue trackers.
 

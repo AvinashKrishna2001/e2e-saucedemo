@@ -4,7 +4,9 @@
       "/home/ascendqe007/.nvm/versions/node/v24.14.1/bin/node",
       "/home/ascendqe007/Documents/saucedemo-e2e/node_modules/.bin/playwright",
       "test",
-      "--project=chromium"
+      "--project=chromium",
+      "--grep",
+      "TC-AUTO-004"
     ],
     "configFile": "/home/ascendqe007/Documents/saucedemo-e2e/playwright.config.ts",
     "rootDir": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui",
@@ -18,7 +20,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 6
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
@@ -27,7 +29,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 6
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
@@ -47,7 +49,7 @@
         "repeatEach": 1,
         "retries": 1,
         "metadata": {
-          "actualWorkers": 6
+          "actualWorkers": 1
         },
         "name": "chromium",
         "testDir": "/home/ascendqe007/Documents/saucedemo-e2e/src/tests/ui",
@@ -58,7 +60,10 @@
         "use": {
           "baseURL": "https://www.saucedemo.com",
           "testIdAttribute": "data-test",
-          "headless": true,
+          "headless": false,
+          "launchOptions": {
+            "slowMo": 1000
+          },
           "actionTimeout": 10000,
           "navigationTimeout": 20000,
           "screenshot": "only-on-failure",
@@ -113,285 +118,16 @@
     "updateSnapshots": "default",
     "updateSourceMethod": "patch",
     "version": "1.64.1",
-    "workers": 6,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
-    {
-      "title": "authentication.spec.ts",
-      "file": "authentication.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "TC-AUTO-001 @prod-safe - Standard user can sign in successfully",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 4550,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.483Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.875Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.636Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "70f6afe7e350c931056e-6e71fa9a6f1e0e62b73a",
-          "file": "authentication.spec.ts",
-          "line": 4,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-002 @prod-safe - Locked-out user receives a clear authentication error",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 3680,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.527Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.571Z] [INFO] Submit login form {\"username\":\"locked_out_user\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.738Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "70f6afe7e350c931056e-2da08d5ffe27b008c99e",
-          "file": "authentication.spec.ts",
-          "line": 12,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-008 @prod-safe - Invalid username and password are rejected",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 3811,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.488Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.743Z] [INFO] Submit login form {\"username\":\"invalid_user\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.479Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "70f6afe7e350c931056e-ca1b5490f3cc3015e24b",
-          "file": "authentication.spec.ts",
-          "line": 19,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-009 @prod-safe - Empty username displays required-field validation",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 3,
-                  "status": "passed",
-                  "duration": 3667,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.540Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.800Z] [INFO] Submit login form {\"username\":\"\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.636Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "70f6afe7e350c931056e-36a54548b11fcb8906a1",
-          "file": "authentication.spec.ts",
-          "line": 27,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-010 @prod-safe - Empty password displays required-field validation",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
-                  "status": "passed",
-                  "duration": 3664,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.475Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.686Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.656Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "70f6afe7e350c931056e-13af4830f11491341d6d",
-          "file": "authentication.spec.ts",
-          "line": 34,
-          "column": 5
-        }
-      ]
-    },
     {
       "title": "inventory.spec.ts",
       "file": "inventory.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
-        {
-          "title": "TC-AUTO-003 @prod-safe - Inventory page renders the expected products",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "parallelIndex": 5,
-                  "status": "passed",
-                  "duration": 4799,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:38.488Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:38.492Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:39.579Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:37.611Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "491382254a121adeeb47-618a55c38ecb649b4f30",
-          "file": "inventory.spec.ts",
-          "line": 5,
-          "column": 5
-        },
         {
           "title": "TC-AUTO-004 @prod-safe - Products can be sorted by price from low to high",
           "ok": true,
@@ -407,28 +143,28 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 3,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3845,
+                  "duration": 7321,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "[2026-10-15T09:42:42.261Z] [INFO] Fixture setup: create an authenticated shopper session\n"
+                      "text": "[2026-10-15T10:31:10.528Z] [INFO] Fixture setup: create an authenticated shopper session\n"
                     },
                     {
-                      "text": "[2026-10-15T09:42:42.261Z] [INFO] Navigate to SauceDemo login page\n"
+                      "text": "[2026-10-15T10:31:10.529Z] [INFO] Navigate to SauceDemo login page\n"
                     },
                     {
-                      "text": "[2026-10-15T09:42:43.343Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
+                      "text": "[2026-10-15T10:31:12.411Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
                     },
                     {
-                      "text": "[2026-10-15T09:42:44.563Z] [INFO] Sort inventory {\"option\":\"lohi\"}\n"
+                      "text": "[2026-10-15T10:31:15.719Z] [INFO] Sort inventory {\"option\":\"lohi\"}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-15T09:42:41.949Z",
+                  "startTime": "2026-10-15T10:31:09.626Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -440,436 +176,15 @@
           "file": "inventory.spec.ts",
           "line": 13,
           "column": 5
-        },
-        {
-          "title": "TC-AUTO-011 @prod-safe - Products can be sorted by name A to Z",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
-                  "status": "passed",
-                  "duration": 3663,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:42.234Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:42.235Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:43.326Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:44.486Z] [INFO] Sort inventory {\"option\":\"az\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:41.910Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "491382254a121adeeb47-f043c856f1c75eddf5d8",
-          "file": "inventory.spec.ts",
-          "line": 23,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-012 @prod-safe - Products can be sorted by name Z to A",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 3931,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:42.360Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:42.360Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:43.338Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:44.682Z] [INFO] Sort inventory {\"option\":\"za\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:41.978Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "491382254a121adeeb47-284736333231f59d890f",
-          "file": "inventory.spec.ts",
-          "line": 31,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-013 @prod-safe - Products can be sorted by price from high to low",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
-                  "status": "passed",
-                  "duration": 3773,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:42.524Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:42.525Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:43.442Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:44.764Z] [INFO] Sort inventory {\"option\":\"hilo\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:42.060Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "491382254a121adeeb47-ef8d98c4b36ff40ab44b",
-          "file": "inventory.spec.ts",
-          "line": 39,
-          "column": 5
-        }
-      ]
-    },
-    {
-      "title": "shopping.spec.ts",
-      "file": "shopping.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "TC-AUTO-005 @prod-safe - Adding a product updates the cart badge",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3167,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:42.945Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:42.945Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:43.739Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:44.969Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:42.736Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "f177f4eaa9abb9f5894f-6460126b3abaca9bdaa5",
-          "file": "shopping.spec.ts",
-          "line": 5,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-006 @prod-safe - A product can be removed from the cart",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "parallelIndex": 5,
-                  "status": "passed",
-                  "duration": 3220,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:43.148Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:43.148Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:44.017Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:45.340Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:45.691Z] [INFO] Remove product from cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:42.930Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "f177f4eaa9abb9f5894f-e8f977e7982fc3f8d193",
-          "file": "shopping.spec.ts",
-          "line": 12,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-007 @production-unsafe - Shopper completes checkout for a cart prepared by a fixture",
-          "ok": true,
-          "tags": [
-            "production-unsafe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
-                  "status": "passed",
-                  "duration": 3900,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:45.886Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:45.886Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.037Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.899Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.901Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:48.682Z] [INFO] Enter checkout customer details {\"hasPostalCode\":true}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:49.198Z] [INFO] Finish demo checkout\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:45.697Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "f177f4eaa9abb9f5894f-0e8e68593e96fb40e1de",
-          "file": "shopping.spec.ts",
-          "line": 23,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-014 @prod-safe - Cart shows the correct contents when multiple products are added",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 3,
-                  "status": "passed",
-                  "duration": 3191,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:46.103Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:46.103Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:46.915Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.786Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.953Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-bike-light\"}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:45.915Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "f177f4eaa9abb9f5894f-635c650eb9a136123b02",
-          "file": "shopping.spec.ts",
-          "line": 39,
-          "column": 5
-        },
-        {
-          "title": "TC-AUTO-015 @prod-safe - Checkout blocks continuation when postal code is missing",
-          "ok": true,
-          "tags": [
-            "prod-safe"
-          ],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3364,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[2026-10-15T09:42:46.199Z] [INFO] Fixture setup: create an authenticated shopper session\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:46.199Z] [INFO] Navigate to SauceDemo login page\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:46.914Z] [INFO] Submit login form {\"username\":\"standard_user\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.785Z] [INFO] Fixture setup: establish cart state required by checkout scenario\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:47.785Z] [INFO] Add product to cart {\"productSlug\":\"sauce-labs-backpack\"}\n"
-                    },
-                    {
-                      "text": "[2026-10-15T09:42:48.470Z] [INFO] Enter checkout customer details {\"hasPostalCode\":false}\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-15T09:42:46.050Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "f177f4eaa9abb9f5894f-bf87cd296724d66f4734",
-          "file": "shopping.spec.ts",
-          "line": 51,
-          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-15T09:42:35.786Z",
-    "duration": 14059.055999999999,
-    "expected": 15,
+    "startTime": "2026-10-15T10:31:08.880Z",
+    "duration": 8841.992,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

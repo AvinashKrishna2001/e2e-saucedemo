@@ -70,7 +70,6 @@ jobs:
         with:
           name: playwright-diagnostics
           path: |
-            results.json
             failure-summary.md
             test-results/
           retention-days: 14

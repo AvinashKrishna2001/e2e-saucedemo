@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const reportPath = path.join(root, 'results.json');
+const reportPath = path.join(root, 'test-results', 'results.json');
 const outputPath = path.join(root, 'failure-summary.md');
 
 const failedStatuses = new Set([
@@ -133,7 +133,7 @@ function formatAttachments(result) {
 
 async function writeUnavailableSummary(error) {
     const reason = error.code === 'ENOENT'
-        ? '`results.json` was not created. Playwright may not have started, or execution may have failed during setup.'
+        ? '`test-results/results.json` was not created. Playwright may not have started, or execution may have failed during setup.'
         : `The JSON report could not be read: ${safeText(error.message)}`;
 
     const markdown = [
@@ -207,7 +207,7 @@ async function main() {
     ];
 
     if (failures.length === 0) {
-        lines.push('No final failed tests were recorded in `results.json`.');
+        lines.push('No final failed tests were recorded in `test-results/results.json`.');
         lines.push('');
     } else {
         for (const [index, test] of failures.entries()) {
