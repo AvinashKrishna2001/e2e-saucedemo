@@ -1,6 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 import { loadRuntimeEnvironment } from './src/config/environment';
 
+// Tests must be started through the custom runner (npm test -- <flags>), which sets RUN_VIA_RUNNER.
+if (!process.env.RUN_VIA_RUNNER) {
+  throw new Error(
+    'Run tests through the custom runner, for example: npm test -- --suite all --env qa (see npm test -- --help).',
+  );
+}
+
 const runtime = loadRuntimeEnvironment();
 const isCI = Boolean(process.env.CI);
 

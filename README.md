@@ -45,6 +45,8 @@ The browser download is separate from npm package installation. On Linux CI, use
 
 Do not confuse the runner's `--env` option with Playwright's own options. The runner selects the environment profile, then launches Playwright Test with the correct project and filters.
 
+> **Tests can only be started through this runner.** Running `npx playwright test ...` directly fails with an error, because `playwright.config.ts` requires the `RUN_VIA_RUNNER` variable that only the runner sets. Use the flags below instead, for example `--case` in place of `--grep` and `--env` in place of `TARGET_ENV`. Other Playwright commands such as `npx playwright install` and `npx playwright show-report` are unaffected.
+
 ### Run all 15 automated cases
 
 ```bash

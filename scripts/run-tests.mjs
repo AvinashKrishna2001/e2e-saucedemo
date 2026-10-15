@@ -91,6 +91,7 @@ async function main() {
   const env = {
     ...process.env,
     TARGET_ENV: options.env,
+    RUN_VIA_RUNNER: '1',
     ALLOW_PRODUCTION_WRITES: options.allowProductionWrites ? 'true' : (process.env.ALLOW_PRODUCTION_WRITES ?? 'false'),
   };
   const executable = process.platform === 'win32' ? 'npx.cmd' : 'npx';
