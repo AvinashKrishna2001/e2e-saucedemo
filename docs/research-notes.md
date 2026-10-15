@@ -18,7 +18,7 @@ Related files:
 
 Documentation: https://playwright.dev/docs/test-fixtures
 
-Playwright fixtures scope setup/teardown around a test and keep each test isolated. The custom `authenticatedShopper` and `checkoutReadyShopper` fixtures follow that model and are available for independent tests. The shopping specs (`TC-AUTO-005`, `014`, `006`, `015`, `007`) deliberately do the opposite: they run in serial mode (`test.describe.serial`) on one shared page, so each test depends on the state left by the one before it.
+Playwright fixtures scope setup/teardown around a test and keep each test isolated. The custom `authenticatedShopper` and `checkoutReadyShopper` fixtures establish the required state for each shopping test independently. Each case receives its own browser context and can run by ID or in any order.
 
 ### 3. Microsoft Playwright documentation: Page Object Model
 
@@ -48,7 +48,7 @@ Another SauceDemo + TypeScript sample was reviewed as a secondary structure refe
 | Framework | Playwright Test + TypeScript | Strong locator/assertion APIs, browser projects, fixture lifecycle, retries, traces, and first-party CI support. |
 | Page objects | One class per core page | Centralizes selector and action maintenance without adding a generic base-class hierarchy that the small project does not need. |
 | Test independence | Authentication and inventory cases initialize their own state | These tests can run by ID or in parallel without relying on test ordering. |
-| Dependency demonstration | Serial chain in `shopping.spec.ts` | `TC-AUTO-005` → `014` → `006` → `015` → `007` share one browser session. A later test run alone fails, and a failure skips the rest of the chain. Trade-off: less isolation and harder debugging, in exchange for demonstrating order-dependent tests. |
+| Test independence | Fixture-backed setup in `shopping.spec.ts` | Each shopping test creates its own login and cart state. This supports focused runs, predictable retries, and parallel execution without order-dependent failures. |
 | Environment profiles | `.env`, `.env.qa`, `.env.prod` | Same hosted URL because SauceDemo does not provide separate user-configurable deployments in this sample; users must replace URLs for genuine environments. |
 | Production safety | Checkout tagged and guarded | A checkout completion changes the demo session/order state. The runner excludes it by default in `prod`; a fixture guard also protects direct Playwright runs. |
 | CI browser | Chromium | Limits installation time and keeps the canonical 15-case CI run fast; Firefox and WebKit remain selectable locally. |
