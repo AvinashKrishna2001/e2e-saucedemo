@@ -18,5 +18,9 @@
   "emptyPassword": {
     "username": "standard_user",
     "password": ""
+  },
+  "bothEmpty": {
+    "username": "",
+    "password": ""
   }
 }
