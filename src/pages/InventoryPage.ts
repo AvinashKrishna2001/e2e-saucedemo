@@ -7,6 +7,8 @@ export class InventoryPage {
   readonly sortSelect: Locator;
   readonly cartLink: Locator;
   readonly cartBadge: Locator;
+  readonly menuButton: Locator;
+  readonly logoutLink: Locator;
 
   constructor(private readonly page: Page) {
     this.heading = page.getByText('Products', { exact: true });
@@ -14,6 +16,8 @@ export class InventoryPage {
     this.sortSelect = page.getByTestId('product-sort-container');
     this.cartLink = page.locator('.shopping_cart_link');
     this.cartBadge = page.locator('.shopping_cart_badge');
+    this.menuButton = page.getByTestId('menuButton').describe('Inventory navigation menu button');
+    this.logoutLink = page.getByTestId('logout-sidebar-link').describe('Logout link in the navigation sidebar');
   }
 
   async expectLoaded(): Promise<void> {
@@ -41,6 +45,16 @@ export class InventoryPage {
 
   async openCart(): Promise<void> {
     await this.cartLink.click();
+  }
+
+  async openMenu(): Promise<void> {
+    logger.info('Open inventory navigation menu');
+    await this.menuButton.click();
+  }
+
+  async logout(): Promise<void> {
+    logger.info('Log out of SauceDemo session');
+    await this.logoutLink.click();
   }
 
   async expectCartCount(count: number): Promise<void> {
