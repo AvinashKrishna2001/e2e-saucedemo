@@ -39,6 +39,13 @@ export class InventoryPage {
     await this.page.getByTestId(`add-to-cart-${productSlug}`).click();
   }
 
+  async openProduct(productName: string): Promise<void> {
+    logger.info('Open product details', { productName });
+    await this.items.filter({ hasText: productName }).getByText(productName, { exact: true })
+      .describe('Inventory product name link that opens product details')
+      .click();
+  }
+
   async openCart(): Promise<void> {
     await this.cartLink.click();
   }

@@ -2,7 +2,8 @@ import { test, expect } from '../../fixtures/test';
 import products from '../../data/products.json';
 import { expectAscending, expectDescending, parsePrice } from '../../utils/assertions';
 
-test('TC-AUTO-003 @prod-safe - Inventory page renders the expected products', async ({ authenticatedShopper }) => {
+test.describe('Inventory and Product Details', () => {
+  test('TC-AUTO-003 @prod-safe - Inventory page renders the expected products', async ({ authenticatedShopper }) => {
   await authenticatedShopper.expectLoaded();
   const names = await authenticatedShopper.itemNames();
 
@@ -41,4 +42,20 @@ test('TC-AUTO-013 @prod-safe - Products can be sorted by price from high to low'
   const displayedPrices = (await authenticatedShopper.itemPrices()).map(parsePrice);
 
   expectDescending(displayedPrices, 'Inventory prices');
+});
+
+  test('TC-MAN-006 @prod-safe - User can open the Sauce Labs Backpack product details', async ({ authenticatedShopper, productDetailsPage }) => {
+    await test.step('Open the Sauce Labs Backpack product details', async () => {
+      await authenticatedShopper.openProduct(products.backpack.name);
+      await expect(productDetailsPage.name, 'Product details page should be displayed').toBeVisible();
+    });
+
+    await test.step('Inspect the product details', async () => {
+      await productDetailsPage.expectLoaded(
+        products.backpack.name,
+        products.backpack.description,
+        products.backpack.price,
+      );
+    });
+  });
 });

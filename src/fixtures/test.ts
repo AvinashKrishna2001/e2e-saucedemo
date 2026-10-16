@@ -3,6 +3,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
+import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import users from '../data/users.json';
 import { logger } from '../utils/logger';
 
@@ -17,6 +18,7 @@ type FrameworkFixtures = {
   inventoryPage: InventoryPage;
   cartPage: CartPage;
   checkoutPage: CheckoutPage;
+  productDetailsPage: ProductDetailsPage;
   authenticatedShopper: InventoryPage;
   checkoutReadyShopper: CheckoutReadyShopper;
   productionSafetyGuard: void;
@@ -49,6 +51,9 @@ export const test = base.extend<FrameworkFixtures>({
   },
   checkoutPage: async ({ page }, use) => {
     await use(new CheckoutPage(page));
+  },
+  productDetailsPage: async ({ page }, use) => {
+    await use(new ProductDetailsPage(page));
   },
   authenticatedShopper: async ({ loginPage, inventoryPage }, use) => {
     logger.info('Fixture setup: create an authenticated shopper session');
