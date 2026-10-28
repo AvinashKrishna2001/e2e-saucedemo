@@ -37,7 +37,7 @@ test('TC-AUTO-007 @production-unsafe - Shopper completes checkout for a cart pre
 });
 
 test('TC-AUTO-014 @prod-safe - Cart shows the correct contents when multiple products are added', async ({ authenticatedShopper, cartPage }) => {
-  await authenticatedShopper.addToCart('allaballa');
+  await authenticatedShopper.addToCart('sauce-labs-backpack');
   await authenticatedShopper.addToCart('sauce-labs-bike-light');
   await authenticatedShopper.expectCartCount(2);
 
